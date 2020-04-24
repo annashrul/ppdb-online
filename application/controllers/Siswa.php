@@ -16,6 +16,7 @@ class Siswa extends CI_Controller
 	}
 
 	public function index(){
+
 		if($this->get == null){
 			redirect('siswa/auth');
 		}else{
@@ -72,33 +73,41 @@ class Siswa extends CI_Controller
 		$kotaOrtu='kota_ortu';//39
 		$emailOrtu='email_ortu';//40
 		$input=$this->input->post();
-		$data=array(
-			$namaLengkap=>$input[$namaLengkap],
-			$namaPanggilan=>$input[$namaPanggilan],
-			$jk=>$input[$jk],
-			$tmpLahir=>$input[$tmpLahir],
-			$tglLahir=>$input[$tglLahir],
-			$anakKeBerapa=>$input[$anakKeBerapa],
-			$jmlAnakKandung=>$input[$jmlAnakKandung],
-			$jmlAnakTiri=>$input[$jmlAnakTiri],
-			$jmlAnakAngkat=>$input[$jmlAnakAngkat],
-			$statusAnak=>$input[$statusAnak],
-			$bahasa=>$input[$bahasa],
-			$agama=>$input[$agama],
-			$alamatSiswa=>$input[$alamatSiswa],
-			$rt=>$input[$rt],
-			$rw=>$input[$rw],
-			$kel=>$input[$kel],
-			$kec=>$input[$kec],
-			$kota=>$input[$kota],
-			$email=>$input[$email],
-			$telp=>$input[$telp],
-			$tingalPada=>$input[$tingalPada],
-		);
-		echo json_encode(array('res'=>$this->input->post()));
+//		$data=array(
+//			$namaLengkap=>$input[$namaLengkap],
+//			$namaPanggilan=>$input[$namaPanggilan],
+//			$jk=>$input[$jk],
+//			$tmpLahir=>$input[$tmpLahir],
+//			$tglLahir=>$input[$tglLahir],
+//			$anakKeBerapa=>$input[$anakKeBerapa],
+//			$jmlAnakKandung=>$input[$jmlAnakKandung],
+//			$jmlAnakTiri=>$input[$jmlAnakTiri],
+//			$jmlAnakAngkat=>$input[$jmlAnakAngkat],
+//			$statusAnak=>$input[$statusAnak],
+//			$bahasa=>$input[$bahasa],
+//			$agama=>$input[$agama],
+//			$alamatSiswa=>$input[$alamatSiswa],
+//			$rt=>$input[$rt],
+//			$rw=>$input[$rw],
+//			$kel=>$input[$kel],
+//			$kec=>$input[$kec],
+//			$kota=>$input[$kota],
+//			$email=>$input[$email],
+//			$telp=>$input[$telp],
+//			$tingalPada=>$input[$tingalPada],
+//		);
+		$result=array();
+		foreach($this->input->post() as $row){
+			array_push($result,$row);
+		}
+		$this->session->set_userdata(array('res_daftar'=>$result));
+		echo json_encode(array('res'=>$result));
 	}
 
 	public function auth(){
+		$res=$this->session->userdata('res_daftar');
+		echo '<pre>';
+		var_dump($res);
 		$this->load->view('siswa/auth');
 	}
 
