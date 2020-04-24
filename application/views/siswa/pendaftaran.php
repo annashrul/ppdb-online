@@ -41,6 +41,7 @@
 	$emailOrtu='email_ortu';//40
 
 ?>
+
 <!-- Main Content Area -->
 <div class="main-content">
 	<div class="container-fluid">
@@ -52,7 +53,8 @@
 						<form action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
 							<?php $sess = $this->session->res_daftar; ?>
 							<!-- SmartWizard html -->
-							<div id="smartwizard">
+
+							<div id="smartwizard" class="sw-main sw-theme-arrows">
 								<ul>
 									<li><a href="#step-1">Form 1</a></li>
 									<li><a href="#step-2">Form 2</a></li>
@@ -67,13 +69,13 @@
 												<div class="form-group">
 													<?php $field='nama_lengkap'; ?>
 													<label for="<?=$field?>">Nama Lengkap <small style="color:black;font-weight: bold">( harus sesuai dengan akte lahir )</small></label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[0]!=null?$sess[0]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[0])!=null?$sess[0]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
 													<?php $field='nama_panggilan'; ?>
 													<label for="<?=$field?>">Nama Panggilan </label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[1]!=null?$sess[1]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[1])!=null?$sess[1]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
@@ -81,8 +83,8 @@
 													<label for="<?=$field?>">Jenis Kelamin </label>
 													<select name="<?=$field?>" id="<?=$field?>" class="form-control"  required>
 														<option value="">Pilih</option>
-														<option value="L"<?=$sess[2]=='L'?'selected':null?>>Laki-laki</option>
-														<option value="P"<?=$sess[2]=='P'?'selected':null?>>Perempuan</option>
+														<option value="L"<?=isset($sess[2])=='L'?'selected':null?>>Laki-laki</option>
+														<option value="P"<?=isset($sess[2])=='P'?'selected':null?>>Perempuan</option>
 													</select>
 													<div class="help-block with-errors"></div>
 												</div>
@@ -91,7 +93,7 @@
 														<div class="form-group">
 															<?php $field='tempat_lahir'; ?>
 															<label for="<?=$field?>">Tempat Lahir </label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[3]!=null?$sess[3]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[3])!=null?$sess[3]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -99,7 +101,7 @@
 														<div class="form-group">
 															<?php $field='tanggal_lahir'; ?>
 															<label for="<?=$field?>">Tanggal Lahir </label>
-															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[4]!=null?$sess[4]:null?>" required>
+															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[4])!=null?$sess[4]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -112,7 +114,7 @@
 														<div class="form-group">
 															<?php $field='anak_ke_berapa'; ?>
 															<label for="<?=$field?>">Anak ke berapa</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[5]!=null?$sess[5]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[5])!=null?$sess[5]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -120,7 +122,7 @@
 														<div class="form-group">
 															<?php $field='jumlah_anak_kandung'; ?>
 															<label for="<?=$field?>">Jumlah anak kandung</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[6]!=null?$sess[6]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[6])!=null?$sess[6]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -131,7 +133,7 @@
 														<div class="form-group">
 															<?php $field='jumlah_anak_tiri'; ?>
 															<label for="<?=$field?>">Jumlah anak tiri</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[7]!=null?$sess[7]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[7])!=null?$sess[7]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -139,7 +141,7 @@
 														<div class="form-group">
 															<?php $field='jumlah_anak_angkat'; ?>
 															<label for="<?=$field?>">Jumlah anak angkat</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[8]!=null?$sess[8]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[8])!=null?$sess[8]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -151,10 +153,10 @@
 															<label for="<?=$field?>">Status anak</label>
 															<select name="<?=$field?>" id="<?=$field?>" class="form-control" required>
 																<option value="">Pilih</option>
-																<option value="-"<?=$sess[9]=='-'?'selected':null?>>-</option>
-																<option value="piatu" <?=$sess[9]=='piatu'?'selected':null?>">Piatu</option>
-																<option value="yatim"<?=$sess[9]=='yatim'?'selected':null?>>Yatim</option>
-																<option value="yatim_piatu"<?=$sess[9]=='yatim_piatu'?'selected':null?>>Yatim Piatu</option>
+																<option value="-"<?=isset($sess[9])=='-'?'selected':null?>>-</option>
+																<option value="piatu" <?=isset($sess[9])=='piatu'?'selected':null?>">Piatu</option>
+																<option value="yatim"<?=isset($sess[9])=='yatim'?'selected':null?>>Yatim</option>
+																<option value="yatim_piatu"<?=isset($sess[9])=='yatim_piatu'?'selected':null?>>Yatim Piatu</option>
 															</select>
 															<div class="help-block with-errors"></div>
 														</div>
@@ -163,7 +165,7 @@
 														<div class="form-group">
 															<?php $field='bahasa'; ?>
 															<label for="<?=$field?>">Bahasa sehari-hari</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[10]!=null?$sess[10]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[10])!=null?$sess[10]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -173,11 +175,11 @@
 													<label for="<?=$field?>">Agama / Kepercayaan</label>
 													<select name="<?=$field?>" id="<?=$field?>" class="form-control" required>
 														<option value="">Pilih</option>
-														<option value="islam"<?=$sess[11]=='islam'?'selected':null?>>Islam</option>
-														<option value="kristen"<?=$sess[11]=='kristen'?'selected':null?>>Kristen</option>
-														<option value="hindu"<?=$sess[11]=='hindu'?'selected':null?>>Hindu</option>
-														<option value="budha"<?=$sess[11]=='budha'?'selected':null?>>Budha</option>
-														<option value="konghucu"<?=$sess[11]=='konghucu'?'selected':null?>>Konghucu</option>
+														<option value="islam"<?=isset($sess[11])=='islam'?'selected':null?>>Islam</option>
+														<option value="kristen"<?=isset($sess[11])=='kristen'?'selected':null?>>Kristen</option>
+														<option value="hindu"<?=isset($sess[11])=='hindu'?'selected':null?>>Hindu</option>
+														<option value="budha"<?=isset($sess[11])=='budha'?'selected':null?>>Budha</option>
+														<option value="konghucu"<?=isset($sess[11])=='konghucu'?'selected':null?>>Konghucu</option>
 													</select>
 													<div class="help-block with-errors"></div>
 												</div>
@@ -191,8 +193,8 @@
 											<div class="col-md-6 form-step-1" role="form" data-toggle="validator">
 												<div class="form-group">
 													<?php $field='alamat_siswa'; ?>
-													<label for="<?=$field?>">Anak lengkap siswa</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[12]!=null?$sess[12]:null?>" required>
+													<label for="<?=$field?>">Alamat lengkap siswa</label>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[12])!=null?$sess[12]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="row">
@@ -200,7 +202,7 @@
 														<div class="form-group">
 															<?php $field='rt'; ?>
 															<label for="<?=$field?>">RT</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[13]!=null?$sess[13]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[13])!=null?$sess[13]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -208,7 +210,7 @@
 														<div class="form-group">
 															<?php $field='rw'; ?>
 															<label for="<?=$field?>">RW</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[14]!=null?$sess[14]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[14])!=null?$sess[14]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -218,7 +220,7 @@
 														<div class="form-group">
 															<?php $field='kelurahan'; ?>
 															<label for="<?=$field?>">Kelurahan</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[15]!=null?$sess[15]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[15])!=null?$sess[15]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -226,7 +228,7 @@
 														<div class="form-group">
 															<?php $field='kecamatan'; ?>
 															<label for="<?=$field?>">Kecamatan</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[16]!=null?$sess[16]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[16])!=null?$sess[16]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -234,7 +236,7 @@
 												<div class="form-group">
 													<?php $field='kota'; ?>
 													<label for="<?=$field?>">Kota</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[17]!=null?$sess[17]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[17])!=null?$sess[17]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 
@@ -243,13 +245,13 @@
 												<div class="form-group">
 													<?php $field='telepon'; ?>
 													<label for="<?=$field?>">Telepon</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[18]!=null?$sess[18]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[18])!=null?$sess[18]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
 													<?php $field='email'; ?>
 													<label for="<?=$field?>">Email</label>
-													<input type="email" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[19]!=null?$sess[19]:null?>" required>
+													<input type="email" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[19])!=null?$sess[19]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="row">
@@ -259,8 +261,8 @@
 															<label for="<?=$field?>">Tinggal pada </label>
 															<select name="<?=$field?>" id="<?=$field?>" class="form-control" required>
 																<option value="">Pilih</option>
-																<option value="orang_tua"<?=$sess[20]=='orang_tua'?'selected':null?>>Orang Tua</option>
-																<option value="menumpang"<?=$sess[20]=='menumpang'?'selected':null?>>Menumpang</option>
+																<option value="orang_tua"<?=isset($sess[20])=='orang_tua'?'selected':null?>>Orang Tua</option>
+																<option value="menumpang"<?=isset($sess[20])=='menumpang'?'selected':null?>>Menumpang</option>
 															</select>
 															<div class="help-block with-errors"></div>
 														</div>
@@ -271,10 +273,10 @@
 															<label for="<?=$field?>">Pergi dengan</label>
 															<select name="<?=$field?>" id="<?=$field?>" class="form-control" required>
 																<option value="">Pilih</option>
-																<option value="berjalan"<?=$sess[21]=='berjalan'?'selected':null?>>Berjalan Kaki</option>
-																<option value="mobil"<?=$sess[21]=='mobil'?'selected':null?>>Mobil</option>
-																<option value="motor"<?=$sess[21]=='motor'?'selected':null?>>Motor</option>
-																<option value="lainnya"<?=$sess[21]=='lainnya'?'selected':null?>>Lainnya</option>
+																<option value="berjalan"<?=isset($sess[21])=='berjalan'?'selected':null?>>Berjalan Kaki</option>
+																<option value="mobil"<?=isset($sess[21])=='mobil'?'selected':null?>>Mobil</option>
+																<option value="motor"<?=isset($sess[21])=='motor'?'selected':null?>>Motor</option>
+																<option value="lainnya"<?=isset($sess[21])=='lainnya'?'selected':null?>>Lainnya</option>
 															</select>
 															<div class="help-block with-errors"></div>
 														</div>
@@ -284,7 +286,7 @@
 												<div class="form-group">
 													<?php $field='jarak'; ?>
 													<label for="<?=$field?>">Jarak tempat tinggal ke sekolah</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[22]!=null?$sess[22]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[22])!=null?$sess[22]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 
@@ -297,13 +299,13 @@
 												<div class="form-group">
 													<?php $field='berat_badan'; ?>
 													<label for="<?=$field?>">Berat badan</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[23]!=null?$sess[23]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[23])!=null?$sess[23]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
 													<?php $field='tinggi_badan'; ?>
 													<label for="<?=$field?>">Tinggi badan</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[24]!=null?$sess[24]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[24])!=null?$sess[24]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 											</div>
@@ -311,13 +313,13 @@
 												<div class="form-group">
 													<?php $field='golongan_darah'; ?>
 													<label for="<?=$field?>">Golongan darah</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[25]!=null?$sess[25]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[25])!=null?$sess[25]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
 													<?php $field='riwayat_penyakit'; ?>
 													<label for="<?=$field?>">Riwayat Penyakit <small style="font-weight: bold">( pisahkan dengan - apabila lebih dari satu. contoh : asma-jantung )</small></label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[26]!=null?$sess[26]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[26])!=null?$sess[26]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 
@@ -331,13 +333,13 @@
 												<div class="form-group">
 													<?php $field='nama_ayah'; ?>
 													<label for="<?=$field?>">Nama ayah</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[27]!=null?$sess[27]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[27])!=null?$sess[27]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="form-group">
 													<?php $field='nama_ibu'; ?>
 													<label for="<?=$field?>">Nama ibu</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[28]!=null?$sess[28]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[28])!=null?$sess[28]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="row">
@@ -345,7 +347,7 @@
 														<div class="form-group">
 															<?php $field='tempat_lahir_ayah'; ?>
 															<label for="<?=$field?>">Tempat lahir ayah</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[29]!=null?$sess[29]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[29])!=null?$sess[29]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -353,7 +355,7 @@
 														<div class="form-group">
 															<?php $field='tanggal_lahir_ayah'; ?>
 															<label for="<?=$field?>">Tanggal lahir ayah</label>
-															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[30]!=null?$sess[30]:null?>" required>
+															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[30])!=null?$sess[30]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -363,7 +365,7 @@
 														<div class="form-group">
 															<?php $field='tempat_lahir_ibu'; ?>
 															<label for="<?=$field?>">Tempat lahir ibu</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[31]!=null?$sess[31]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[31])!=null?$sess[31]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -371,7 +373,7 @@
 														<div class="form-group">
 															<?php $field='tanggal_lahir_ibu'; ?>
 															<label for="<?=$field?>">Tanggal lahir ibu</label>
-															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[32]!=null?$sess[32]:null?>" required>
+															<input type="date" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[32])!=null?$sess[32]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -381,7 +383,7 @@
 												<div class="form-group">
 													<?php $field='alamat_ortu'; ?>
 													<label for="<?=$field?>">Alamat orang tua / wali</label>
-													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[33]!=null?$sess[33]:null?>" required>
+													<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[33])!=null?$sess[33]:null?>" required>
 													<div class="help-block with-errors"></div>
 												</div>
 												<div class="row">
@@ -389,7 +391,7 @@
 														<div class="form-group">
 															<?php $field='rt_ortu'; ?>
 															<label for="<?=$field?>">RT</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[34]!=null?$sess[34]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[34])!=null?$sess[34]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -397,7 +399,7 @@
 														<div class="form-group">
 															<?php $field='rw_ortu'; ?>
 															<label for="<?=$field?>">RW</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[35]!=null?$sess[35]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[35])!=null?$sess[35]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -407,7 +409,7 @@
 														<div class="form-group">
 															<?php $field='kelurahan_ortu'; ?>
 															<label for="<?=$field?>">Kelurahan</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[37]!=null?$sess[37]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[36])!=null?$sess[36]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -415,7 +417,7 @@
 														<div class="form-group">
 															<?php $field='kecamatan_ortu'; ?>
 															<label for="<?=$field?>">Kecamatan</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[36]!=null?$sess[36]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[37])!=null?$sess[37]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -425,7 +427,7 @@
 														<div class="form-group">
 															<?php $field='kota_ortu'; ?>
 															<label for="<?=$field?>">Kota</label>
-															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[38]!=null?$sess[38]:null?>" required>
+															<input type="text" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[38])!=null?$sess[38]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -433,7 +435,7 @@
 														<div class="form-group">
 															<?php $field='email_ortu'; ?>
 															<label for="<?=$field?>">Email</label>
-															<input type="email" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=$sess[39]!=null?$sess[39]:null?>" required>
+															<input type="email" class="form-control" name="<?=$field?>" id="<?=$field?>" value="<?=isset($sess[39])!=null?$sess[39]:null?>" required>
 															<div class="help-block with-errors"></div>
 														</div>
 													</div>
@@ -464,54 +466,64 @@
 		keyUp('<?=$kota?>','<?=$kotaOrtu?>');
 		keyUp('<?=$alamatSiswa?>','<?=$alamatOrtu?>');
 		// Toolbar extra buttons
-		var btnFinish = $('<button></button>').text('Finish')
-			.addClass('btn btn-info')
-			.on('click', function(){
-				if( !$(this).hasClass('disabled')){
-					var elmForm = $("#myForm");
-					 if(elmForm){
-						elmForm.validator('validate');
-						var elmErr = elmForm.find('.has-error');
-						if(elmErr && elmErr.length > 0){
-							alert('Oops we still have error in the form');
-							return false;
-						}else{
-							// alert('Great! we are ready to submit form');
-							// elmForm.submit();
-							// return false;
-							elmForm.on('submit',function(e){
-								e.preventDefault();
-								$.ajax({
-									url : "<?=base_url().'siswa/pendaftaran'?>",
-									type:"POST",
-									dataType:"JSON",
-									data:$("#myForm").serialize(),
-									success:function(res){
-										console.log(res);
-										alert('berhasil disimpan');
-										location.reload();
-									}
-								})
-							});
+		var btnFinish = $('<button></button>').text('Simpan').addClass('btn btn-info').on('click', function(){
+			if( !$(this).hasClass('disabled')){
+				var elmForm = $("#myForm");
+				 if(elmForm){
+					elmForm.validator('validate');
+					var elmErr = elmForm.find('.has-error');
+					if(elmErr && elmErr.length > 0){
+						alert('form masih kosong');
+						return false;
+					}else{
+						// alert('Great! we are ready to submit form');
+						// elmForm.submit();
+						// return false;
+						elmForm.on('submit',function(e){
+							e.preventDefault();
+							var img_loader = '<img src="<?=base_url()?>assets/spin.svg">';
+							$.ajax({
+								url : "<?=base_url().'siswa/pendaftaran'?>",
+								type:"POST",
+								dataType:"JSON",
+								data:$("#myForm").serialize(),
+								beforeSend: function() {$('body').append('<div class="first-loader">'+img_loader+'</div>')},
+								complete: function() {$('.first-loader').remove()},
+								success:function(res){
+									console.log(res);
+									alert('berhasil disimpan');
+									location.reload();
+								}
+							})
+						});
 
-						}
+					}
 
-					 }
+				 }
 
-				}
-			});
-		var btnCancel = $('<button></button>').text('Cancel')
-			.addClass('btn btn-danger')
-			.on('click', function(){
-				$('#smartwizard').smartWizard("reset");
-				$('#myForm').find("input, textarea").val("");
-			});
+			}
+		});
+		var btnCancel = $('<button></button>').text('Ulangi').addClass('btn btn-danger').on('click', function(){
+			$('#smartwizard').smartWizard("reset");
+			$('#myForm').find("input, textarea").val("");
+		});
 
 
 
 		// Smart Wizard
 		$('#smartwizard').smartWizard({
-			toolbarSettings: {toolbarPosition: 'bottom',
+			selected: 0,  // Initial selected step, 0 = first step
+			keyNavigation:true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+			autoAdjustHeight:true, // Automatically adjust content height
+			cycleSteps: false, // Allows to cycle the navigation of steps
+			backButtonSupport: true, // Enable the back button support
+			useURLhash: true, // Enable selection of the step based on url hash
+			lang: {  // Language variables
+				next: 'Lanjut',
+				previous: 'Kembali'
+			},
+			toolbarSettings: {
+				toolbarPosition: 'bottom',
 				toolbarExtraButtons: [btnFinish, btnCancel]
 			},
 			anchorSettings: {
@@ -519,20 +531,22 @@
 				markAllPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
 				removeDoneStepOnNavigateBack: true, // While navigate back done step after active step will be cleared
 				enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
-			}
+			},
+			transitionEffect: 'fade', // Effect on navigation, none/slide/fade
+			transitionSpeed: '400'
 		});
 
 		$("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
 			var elmForm = $(".form-step-" + stepNumber);
-			// if(stepDirection === 'forward' && elmForm){
-			// 	elmForm.validator('validate');
-			// 	var elmErr = elmForm.children('.has-error');
-			// 	if(elmErr && elmErr.length > 0){
-			// 		// Form validation failed
-			// 		return false;
-			// 	}
-			// }
-			// return true;
+			if(stepDirection === 'forward' && elmForm){
+				elmForm.validator('validate');
+				var elmErr = elmForm.children('.has-error');
+				if(elmErr && elmErr.length > 0){
+					// Form validation failed
+					return false;
+				}
+			}
+			return true;
 		});
 
 		$("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {

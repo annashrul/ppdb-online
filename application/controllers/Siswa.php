@@ -106,8 +106,7 @@ class Siswa extends CI_Controller
 
 	public function auth(){
 		$res=$this->session->userdata('res_daftar');
-		echo '<pre>';
-		var_dump($res);
+
 		$this->load->view('siswa/auth');
 	}
 
