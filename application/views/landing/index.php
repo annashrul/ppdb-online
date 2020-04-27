@@ -101,39 +101,7 @@
 	</div>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" id="modal_login" style="display: none">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="modal_title"></h4>
-			</div>
-			<form class="form-horizontal" id="form_login">
-				<div class="modal-body">
-					<div class="box-body">
-						<div class="form-group">
-							<?php $field='email'; ?>
-							<label>Email</label>
-							<input type="email" name="<?=$field?>" class="form-control" id="<?=$field?>" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<?php $field='password'; ?>
-							<label>Password</label>
-							<input type="password" name="<?=$field?>" class="form-control" id="<?=$field?>" autocomplete="off">
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary" id="simpan" name="simpan">Simpan</button>
-				</div>
-				<input type="hidden" name="param" id="param" value="siswa">
-			</form>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
+
 
 
 <script src="<?=assets('landing/vendors/owl-carousel/js/owl.carousel.min.js');?>"></script>

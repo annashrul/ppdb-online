@@ -1,44 +1,44 @@
 <?php
-	$namaLengkap='nama_lengkap';//1
-	$namaPanggilan='nama_panggilan';//2
-	$jk='jenis_kelamin';//3
-	$tmpLahir='tempat_lahir';//4
-	$tglLahir='tanggal_lahir';//5
-	$anakKeBerapa='anak_ke_berapa';//6
-	$jmlAnakKandung='jumlah_anak_kandung';//7
-	$jmlAnakTiri='jumlah_anak_tiri';//8
-	$jmlAnakAngkat='jumlah_anak_angkat';//9
-	$statusAnak='status_anak';//10
-	$bahasa='bahasa';//11
-	$agama='agama';//12
-	$alamatSiswa='alamat_siswa';//13
-	$rt='rt';//14
-	$rw='rw';//15
-	$kel='kelurahan';//16
-	$kec='kecamatan';//17
-	$kota='kota';//18
-	$telp='telepon';//19
-	$email='email';//20
-	$tingalPada='tinggal_pada';//21
-	$pergiDengan='pergi_dengan';//22
-	$jarak='jarak';//23
-	$beratBadan='berat_badan';//24
-	$tinggiBadan='tinggi_badan';//25
-	$golonganDarah='golongan_darah';//26
-	$riwayatPenyakit='riwayat_penyakit';//27
-	$namaAyah='nama_ayah';//28
-	$namaIbu='nama_ibu';//29
-	$tmpLahirAyah='tempat_lahir_ayah';//30
-	$tglLahirAyah='tanggal_lahir_ayah';//31
-	$tmpLahirIbu='tempat_lahir_ibu';//32
-	$tglLahirIbu='tanggal_lahir_ibu';//33
-	$alamatOrtu='alamat_ortu';//34
-	$rtOrtu='rt_ortu';//35
-	$rwOrtu='rw_ortu';//36
-	$kecOrtu='kecamatan_ortu';//37
-	$kelOrtu='kelurahan_ortu';//38
-	$kotaOrtu='kota_ortu';//39
-	$emailOrtu='email_ortu';//40
+$namaLengkap='nama_lengkap';//1
+$namaPanggilan='nama_panggilan';//2
+$jk='jenis_kelamin';//3
+$tmpLahir='tempat_lahir';//4
+$tglLahir='tanggal_lahir';//5
+$anakKeBerapa='anak_ke_berapa';//6
+$jmlAnakKandung='jumlah_anak_kandung';//7
+$jmlAnakTiri='jumlah_anak_tiri';//8
+$jmlAnakAngkat='jumlah_anak_angkat';//9
+$statusAnak='status_anak';//10
+$bahasa='bahasa';//11
+$agama='agama';//12
+$alamatSiswa='alamat_siswa';//13
+$rt='rt';//14
+$rw='rw';//15
+$kel='kelurahan';//16
+$kec='kecamatan';//17
+$kota='kota';//18
+$telp='telepon';//19
+$email='email';//20
+$tingalPada='tinggal_pada';//21
+$pergiDengan='pergi_dengan';//22
+$jarak='jarak';//23
+$beratBadan='berat_badan';//24
+$tinggiBadan='tinggi_badan';//25
+$golonganDarah='golongan_darah';//26
+$riwayatPenyakit='riwayat_penyakit';//27
+$namaAyah='nama_ayah';//28
+$namaIbu='nama_ibu';//29
+$tmpLahirAyah='tempat_lahir_ayah';//30
+$tglLahirAyah='tanggal_lahir_ayah';//31
+$tmpLahirIbu='tempat_lahir_ibu';//32
+$tglLahirIbu='tanggal_lahir_ibu';//33
+$alamatOrtu='alamat_ortu';//34
+$rtOrtu='rt_ortu';//35
+$rwOrtu='rw_ortu';//36
+$kecOrtu='kecamatan_ortu';//37
+$kelOrtu='kelurahan_ortu';//38
+$kotaOrtu='kota_ortu';//39
+$emailOrtu='email_ortu';//40
 
 ?>
 
@@ -470,7 +470,7 @@
 		var btnFinish = $('<button></button>').text('Simpan').addClass('btn btn-info').on('click', function(){
 			if( !$(this).hasClass('disabled')){
 				var elmForm = $("#myForm");
-				 if(elmForm){
+				if(elmForm){
 					elmForm.validator('validate');
 					var elmErr = elmForm.find('.has-error');
 					if(elmErr && elmErr.length > 0){
@@ -501,7 +501,7 @@
 
 					}
 
-				 }
+				}
 
 			}
 		});

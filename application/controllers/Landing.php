@@ -28,7 +28,7 @@ class Landing extends CI_Controller
 						);
 						$this->session->set_userdata($session);
 						$data=array(
-							"url"	=> "siswa?session=".password_hash($session['idr'].$session['id'],PASSWORD_BCRYPT).q(1,$_POST['param']=='siswa'?'pendaftaran':'dashboard')
+							"url"	=> "pendaftaran?q=".$_POST['param']."&session=".password_hash($session['idr'].$session['id'],PASSWORD_BCRYPT)."&page=home"
 						);
 						$response=array('msg'=>'berhasil','status'=>true,'result'=>$data);
 					}else{
