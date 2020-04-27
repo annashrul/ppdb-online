@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>PPDB ONLINE <?=$data['nama']?></title>
+	<title><?=$data['nama']?></title>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Source+Code+Pro:wght@200&family=Special+Elite&display=swap" rel="stylesheet">
 	<link rel="icon" href="<?=$data['logo']?>">
 	<link rel="stylesheet" href="<?=base_url().'assets/mtrl/'?>css/default-assets/notification.css">
