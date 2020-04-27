@@ -1,174 +1,160 @@
-<?php $url = base_url() . "assets"?>
-<style>
-    @media (max-width: 576px) {
-        .right-side-box{margin-top: 20px!important;}
-    }
-    @media (max-width: 300px) {
-        .right-side-box{margin-top: 20px!important;}
-    }
-
-</style>
-<div class="page-wrapper">
-    <div class="topbar-one">
-        <div class="container">
-            <div class="topbar-one__left">
-                <a href="#" id="headEmail"><?=$config['email']?></a>
-                <a href="#" id="headTelp"><?=$config['telp']?></a>
-            </div><!-- /.topbar-one__left -->
-            <div class="topbar-one__right">
-                <?php if($this->session->isLogin == true) : ?>
-                    <a class="btn btn-primary" href="<?=base_url().'auth/logout_'?>" style="color:white">Keluar</a>
-                <?php else: ?>
-                    <a class="btn btn-primary" href="<?=base_url().'auth?type=siswa'?>" style="color:white">Masuk</a>
-                <?php endif; ?>
-            </div><!-- /.topbar-one__right -->
-        </div><!-- /.container -->
-    </div><!-- /.topbar-one -->
-    <div class="topbar-one visible-xs">
-        <div class="container">
-            <form action="<?=base_url().'berita'?>" class="search-popup__form">
-                <input type="text" name="title" placeholder="Cari Disini....">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div><!-- /.container -->
-    </div><!-- /.topbar-one -->
-    <header class="site-header site-header__header-one ">
-        <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
-            <div class="container clearfix">
-
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="logo-box clearfix">
-
-                        <a class="navbar-brand" href="<?=base_url();?>">
-                            <img src="<?=base_url();?>assets/images/logo-dark.png" class="main-logo" width="75" alt="Awesome Image" />
-                        </a>
-                        <button class="menu-toggler text-right" data-target=".main-navigation">
-                            <span class="kipso-icon-menu"></span>
-                        </button>
-
-
-
-                </div><!-- /.logo-box -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="main-navigation">
-                    <ul class=" navigation-box">
-                        <?php if($this->session->isLogin == true) {?>
-                            <li class="visible-xs"><a href="<?=base_url().'download';?>"><?=$this->session->nama?> ( <?=$this->session->nis?> )</a></li>
-                        <?php } ?>
-                        <li><a href="<?=base_url();?>">Beranda</a></li>
-
-                        <li>
-                            <a href="#">Berita</a>
-                            <ul class="sub-menu">
-                                <?php $read_data=$this->M_crud->read_data('tbl_category','*','id !=4'); foreach ($read_data as $row) { ?>
-                                    <li><a href="<?=base_url("berita?title=".$row['slug'])?>"><?=$row['title']?></a></li>
-                                <?php }?>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#">Selayang Pandang</a>
-                            <ul class="sub-menu">
-                                <?php $controller='selayang_pandang'; ?>
-                                <li><a href="<?=base_url().$controller.'?type=sejarah';?>">Sejarah</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=visi_misi';?>">Visi & Misi</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=budaya';?>">Budaya & Logo</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=landasan_hukum';?>">Landaasan Hukum</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=fasilitas';?>">Fasilitas</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Manajemen</a>
-                            <ul class="sub-menu">
-                                <?php $controller='manajemen'; ?>
-                                <li><a href="<?=base_url().$controller.'?type=kepala_sekolah';?>">Kepala Sekolah</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=kepala_tu';?>">Kepala Tata Usaha</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=wakil_kepala_sekolah';?>">Wakil Kepala Sekolah</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=dewan_komite';?>">Dewan Komite</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=kajur_kaprog';?>">Kajur & Kaprog</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Struktur Organisasi</a>
-                            <ul class="sub-menu">
-                                <?php $controller='struktur'; ?>
-                                <li><a href="<?=base_url().$controller.'?type=bagan';?>">Bagan Struktur</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=divisi';?>">Divisi</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Kegiatan</a>
-                            <ul class="sub-menu">
-                                <?php $controller='kegiatan'; ?>
-                                <li><a href="<?=base_url().$controller.'?type=osis';?>">OSIS</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=eskul';?>">Ekstrakulikuler</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=pramuka';?>">Pramuka</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Informasi</a>
-                            <ul class="sub-menu">
-                                <?php $controller='informasi'; ?>
-                                <li><a href="<?=base_url().$controller.'?type=tenaga_pendidik';?>">Tenaga Pendidikan</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=prestasi';?>">Prestasi</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=sarana_prasarana';?>">Sarana & Prasarana</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=akreditasi';?>">Akreditasi</a></li>
-                                <li><a href="<?=base_url().$controller.'?type=lowongan_kerja';?>">Lowongan Kerja</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Paket Keahlian</a>
-                            <ul class="sub-menu">
-                                <?php foreach ($jurusan as $j) { ?>
-                                    <li><a href="<?=base_url("keahlian?type=".$j['slug'])?>"><?=$j['title']?></a></li>
-                                <?php }?>
-                            </ul>
-                        </li>
-                        <?php if($this->session->isLogin == true) {?>
-                            <li><a href="<?=base_url().'download';?>">Download</a></li>
-                        <?php } ?>
-
-
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-
-                <div class="right-side-box">
-                    <a class="header__search-btn search-popup__toggler" href="#"><i class="fa fa-search"></i></a>
-                </div><!-- /.right-side-box
-
-                </div>
-
-                <!-- /.container -->
-        </nav>
-        <div class="site-header__decor">
-            <div class="site-header__decor-row">
-                <div class="site-header__decor-single">
-                    <div class="site-header__decor-inner-1"></div><!-- /.site-header__decor-inner -->
-                </div><!-- /.site-header__decor-single -->
-                <div class="site-header__decor-single">
-                    <div class="site-header__decor-inner-2"></div><!-- /.site-header__decor-inner -->
-                </div><!-- /.site-header__decor-single -->
-                <div class="site-header__decor-single">
-                    <div class="site-header__decor-inner-3"></div><!-- /.site-header__decor-inner -->
-                </div><!-- /.site-header__decor-single -->
-            </div><!-- /.site-header__decor-row -->
-        </div><!-- /.site-header__decor -->
-    </header><!-- /.site-header -->
-
-    <div class="search-popup">
-        <div class="search-popup__overlay custom-cursor__overlay">
-            <div class="cursor"></div>
-            <div class="cursor-follower"></div>
-        </div>
-        <div class="search-popup__inner">
-            <form action="<?=base_url().'berita'?>" class="search-popup__form">
-                <input type="text" name="title" placeholder="Cari Disini....">
-                <button type="submit"><i class="kipso-icon-magnifying-glass"></i></button>
-            </form>
-        </div>
+<!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+	<div class="ecaps-page-wrapper">
+  <!-- Sidemenu Area -->
+  <div class="ecaps-sidemenu-area" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >
+    <!-- Desktop Logo -->
+    <div class="ecaps-logo">
+      <a href="index.html"><img class="desktop-logo" src="<?=base_url()?>assets/images/logo.png"
+          style="max-height: 60px;" alt="Desktop Logo"> <img class="small-logo"
+          src="<?=base_url()?>assets/images/favicon.png" style="max-height: 60px;" alt="Mobile Logo"></a>
     </div>
 
+    <!-- Side Nav -->
+    <div class="ecaps-sidenav" id="ecapsSideNav">
+      <!-- Side Menu Area -->
+      <div class="side-menu-area">
+        <!-- Sidebar Menu -->
+        <nav>
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class=""><a href="<?=base_url();?>sekolah"><i class="zmdi zmdi-view-dashboard"></i><span>BERANDA</span></a>
+            </li>
+			<li class="treeview">
+              <a href="javascript:void(0)"><i class="zmdi zmdi-apps"></i> <span>Manajemen Siswa</span> <i
+                  class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="<?=base_url()?>sekolah/siswa">Siswa Data</a></li>
+                <li><a href="<?=base_url()?>sekolah/siswa_alamat">Siswa Alamat</a></li>
+                <li><a href="#">Siswa Prestasi</a></li>
+                <li><a href="#">Siswa Wali</a></li>
+                <li><a href="#">Siswa Tambahan</a></li>
+              </ul>
+			  <li class=""><a href="<?=base_url();?>sekolah/out"><i class="zmdi zmdi-view-dashboard"></i><span>KELUAR</span></a>
+            </li>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 
+  <!-- Page Content -->
+  <div class="ecaps-page-content">
+    <!-- Top Header Area -->
+    <header class="top-header-area d-flex align-items-center justify-content-between" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >>
+      <div class="left-side-content-area d-flex align-items-center">
+        <!-- Mobile Logo -->
+        <div class="mobile-logo mr-3 mr-sm-4">
+          <a href="index.html"><img src="<?=base_url();?>assets/images/favicon.png" alt="Mobile Logo"
+              style="max-height: 60px;"></a>
+        </div>
 
+        <!-- Triggers -->
+        <div class="ecaps-triggers mr-1 mr-sm-3">
+          <div class="menu-collasped" id="menuCollasped">
+            <i class="zmdi zmdi-menu"></i>
+          </div>
+          <div class="mobile-menu-open" id="mobileMenuOpen">
+            <i class="zmdi zmdi-menu"></i>
+          </div>
+        </div>
 
+        <!-- Left Side Nav -->
+        <ul class="left-side-navbar d-flex align-items-center" style="display:none!important;">
+          <li class="hide-phone app-search">
+            <form class="input-group" role="search">
+              <input type="text" class="form-control" placeholder="Search Projects.." aria-label="search">
+            </form>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right-side-navbar d-flex align-items-center justify-content-end">
+        <!-- Mobile Trigger -->
+        <div class="right-side-trigger" id="rightSideTrigger">
+          <i class="ti-align-left"></i>
+        </div>
+
+        <!-- Top Bar Nav -->
+        <ul class="right-side-content d-flex align-items-center">
+          <!-- Full Screen Mode -->
+          <li class="full-screen-mode ml-1">
+            <a href="javascript:" id="fullScreenMode"><i class="zmdi zmdi-fullscreen"></i></a>
+          </li>
+
+          <li class="nav-item dropdown" style="display:none!important;">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><i class="zmdi zmdi-shopping-basket" aria-hidden="true"></i></button>
+
+            <div class="dropdown-menu dropdown-menu-right">
+              <!-- Top Message Area -->
+              <div class="top-message-area">
+                <!-- Heading -->
+                <div class="top-message-heading">
+                  <div class="heading-title">
+                    <h6>Messages</h6>
+                  </div>
+                  <span>5 New</span>
+                </div>
+                <div class="message-box" id="messageBox">
+                  <a href="#" class="dropdown-item">
+                    <img src="img/member-img/1.png" alt="">
+                    <span class="message-text">
+                      <span>6-hour video course on Angular</span>
+                      <span>3 min ago</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown" style="display:none!important;">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><i class="zmdi zmdi-volume-up" aria-hidden="true"></i> <span
+                class="active-status"></span></button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <!-- Top Notifications Area -->
+              <div class="top-notifications-area">
+                <!-- Heading -->
+                <div class="notifications-heading">
+                  <div class="heading-title">
+                    <h6>Notifications</h6>
+                  </div>
+                  <span>5 New</span>
+                </div>
+
+                <div class="notifications-box" id="notificationsBox">
+                  <a href="#" class="dropdown-item"><i class="ti-face-smile bg-success"></i><span>We've got something
+                      for you!</span></a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><img src="<?=base_url()?>assets/img/member-img/3.png" alt=""></button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <!-- User Profile Area -->
+              <div class="user-profile-area">
+                <div class="user-profile-heading">
+                  <!-- Thumb -->
+                  <div class="profile-img">
+                    <img class="chat-img mr-2" src="<?=base_url()?>assets/img/member-img/3.png" alt="">
+                  </div>
+                  <!-- Profile Text -->
+                  <div class="profile-text">
+                    <h6>Admin</h6>
+                    <span>Super</span>
+                  </div>
+                </div>
+                <a href="<?=base_url()?>sign/out" class="dropdown-item"><i class="ti-unlink profile-icon bg-warning" aria-hidden="true"></i>
+                  Sign-out</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>

@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['perpus']  = 'http://perpustakaan.smkn14bdg.sch.id/';
 $config['url'] = 'http://'.$_SERVER['HTTP_HOST'].'/';
-$config['site'] = 'ppdb/';
+$config['site'] = 'ppdb-online/';
 $config['base_url'] = $config['url'].$config['site'];
 //$config['base_url'] = $config['url'];
 // $config['base_url'] = 'http://dev.smkn14bdg.sch.id/';
@@ -329,7 +329,11 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+// $config['encryption_key'] = '';
+$key = "98614aa96021b522ddb80c032e04f1b6";
+// Put the same value in your config with hex2bin(),
+// so that it is still passed as binary to the library:
+$config['encryption_key'] = hex2bin($key);
 
 /*
 |--------------------------------------------------------------------------
