@@ -73,7 +73,7 @@
             <div id="dataUpdtCfg" style="display:none;" class="bounceInUp">
             <div class="card">
                     <div class="card-body">
-                        <form class="needs-validation" id="dataFormUpdt" novalidate="">
+                        <form class="needs-validation" id="dataUpdtForm" novalidate="">
 						<input type="hidden" id="txtId">
                         <fieldset>
                             <div class="row" style="padding-right: 15px;">
@@ -260,8 +260,8 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-				<button type="button" onclick="edit(document.getElementById('txtValId_'))" class="btn btn-primary">Ubah</button>
-				<button type="button" onclick="hapus(document.getElementById('txtValId_'))" class="btn btn-primary">Hapus</button>
+				<button type="button" data-dismiss="modal" onclick="edit(document.getElementById('txtValId_'))" class="btn btn-primary">Ubah</button>
+				<button type="button" data-dismiss="modal" onclick="hapus(document.getElementById('txtValId_'))" class="btn btn-primary">Hapus</button>
 			</div>
 		</div>
 	</div>
@@ -319,6 +319,7 @@
 		    }
 	    });
 	}
+
 	// Example starter JavaScript for disabling form submissions if there are invalid fields
 	(function () {
 		'use strict';
@@ -352,6 +353,9 @@
 	});
 
 	function edit(id){
+		if(id==null){
+			id = $("#txtId_").val()
+		}
 			$.ajax({
 		    url       : "<?=base_url()?>sekolah/getSiswaAlamatData/",
 		    method    : "POST",
@@ -375,13 +379,11 @@
 				$("#dataUpdtCfg").toggle().toggleClass('animated');
 				$("#ttAdd").toggle();
 				$("#cdList").toggle().toggleClass('animated');
-				$('#dataUpdtForm')[0].reset();
-				$('#dataUpdtForm').removeClass('was-validated');
 		    }
 	    });
 	}
 
-	$("#dataFormUpdt").on("submit", function (e) {
+	$("#dataUpdtForm").on("submit", function (e) {
 		e.preventDefault();
 		var valId = $("#txtId").val();
 		var valAlm = $("#txtAlm").val();
@@ -415,17 +417,50 @@
 	});
 	
 	function hapus(id){
-			$.ajax({
-		    url       : "<?=base_url()?>sekolah/deleteSiswaAlamat/",
-		    method    : "POST",
-		    data      : {'id':id},
-		    dataType  : "JSON",
-		    // beforeSend: function() {$('body').append('<div class="first-loader"><img src="'+img+'spin.svg"></div>')},
-		    // complete  : function() {$('.first-loader').remove()},
-		    success   : function(data) {
-				console.log(data.result.msg);
-		    }
-	    });
+		if(id==null){
+			id = $("#txtId_").val()
+		}
+		Swal.fire({
+			title: "Perhatian?",
+			text: "Data yang dihapus tidak akan bisa dikembalikan!",
+			type: "warning",
+			showCancelButton: !0,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			cancelButtonText: "Batal",
+			confirmButtonText: "Ya, Hapus"
+		}).then(function (t) {
+			if (t.value) {
+				$.ajax({
+					url       : "<?=base_url()?>sekolah/deleteSiswaAlamat/",
+					method    : "POST",
+					data      : {'id':id},
+					dataType  : "JSON",
+					// beforeSend: function() {$('body').append('<div class="first-loader"><img src="'+img+'spin.svg"></div>')},
+					// complete  : function() {$('.first-loader').remove()},
+					success   : function(data) {
+						console.log(data.msg);
+						if(data.status=='success'){
+							Swal.fire({
+								title:"Perhatian!",
+								text:data.msg,
+								type:"success",
+								confirmButtonClass:"btn btn-confirm mt-2"
+							})
+							// document.location=data.redirect;
+							location.reload();
+						}else{
+							Swal.fire({
+								title:"Perhatian!",
+								text:"Gagal menghapus data!",
+								type:"danger",
+								confirmButtonClass:"btn btn-confirm mt-2"
+							})
+						}
+					}
+				});
+			}
+		})
 	}
 	
 	function detail(id){

@@ -12,7 +12,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
                                         <div class="xs-d-none mb-50-xs break-320-576-none">
-                                            <img src="<?=base_url()?>assets/img/bg-img/2.png" alt="">
+                                            <img src="<?=base_url()?>assets/landing/images/Group171.svg" alt="">
                                         </div>
                                     </div>
 
