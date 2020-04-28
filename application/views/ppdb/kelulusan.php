@@ -18,6 +18,7 @@
 							<table class="table">
 								<thead>
 								<tr>
+									<th>No Pendaftaran</th>
 									<th>Nama</th>
 									<th>Email</th>
 									<th>No Telepon</th>

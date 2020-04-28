@@ -128,6 +128,7 @@ class Ppdb extends CI_Controller
 			"scan_kk"=> $scan_kk['file_name'],
 			"scan_skl"=>$scan_skl['file_name'],
 			"scan_raport"=>$scan_raport['file_name'],
+			"jurusan"=>$input['jurusan_1'].'-'.$input['jurusan_2']
 		);
 
 		$this->m_crud->create_data("tbl_siswa_tambahan",$dataTambahan);
@@ -164,16 +165,19 @@ class Ppdb extends CI_Controller
 		if(isset($_POST['any'])!=null && $_POST['any']){
 			$where.="AND ts.no_register like '%".$_POST['any']."%' OR ts.nama like '%".$_POST['any']."%' OR ts.email like '%".$_POST['any']."%'";
 		}
-		$read_data = $this->m_crud->join_data("tbl_kelulusan tk","tk.*,ts.no_register,ts.nama,ts.email,ts.jenis_kelamin",array("tbl_siswa ts"),array("ts.id=tk.id_siswa"),$where);
+		$read_data = $this->m_crud->join_data("tbl_kelulusan tk","tk.*,ts.no_register,ts.nama,ts.email,ts.jenis_kelamin,ts.nohp,ts.created_at",array("tbl_siswa ts"),array("ts.id_user=tk.id_siswa"),$where);
 		$result='';
 		if($read_data!=null){
 			foreach($read_data as $row){
+				$jk=$row['jenis_kelamin']==0?'Laki-Laki':'Perempuan';
 				$result.='
 				<tr>
 					<td class="text-bold-500">'.$row["no_register"].'</td>
 					<td>'.$row["nama"].'</td>
 					<td class="text-bold-500">'.$row["email"].'</td>
-					<td>'.$row["jenis_kelamin"].'</td>
+					<td class="text-bold-500">'.$row["nohp"].'</td>
+					<td>'.$jk.'</td>
+					<td>'.date("d-m-Y",strtotime($row["created_at"])).'</td>
 					<td>'.$row["status"].'</td>
 				</tr>
 				';

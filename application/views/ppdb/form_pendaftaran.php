@@ -314,7 +314,14 @@ $emailOrtu='email_ortu';//40
 									</div>
 									<div id="step-4">
 										<div class="row">
-											<div class="col-md-6 form-step-3" role="form" data-toggle="validator">
+											<div class="col-md-4 form-step-3" role="form" data-toggle="validator">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group" style="border-bottom: 1px solid #eeeeee">
+															<h5>Form Periodik</h5>
+														</div>
+													</div>
+												</div>
 												<div class="form-group">
 													<?php $field='berat_badan'; ?>
 													<label for="<?=$field?>">Berat Badan</label>
@@ -340,7 +347,14 @@ $emailOrtu='email_ortu';//40
                                                     <div class="help-block with-errors"></div>
                                                 </div>
 											</div>
-											<div class="col-md-6 form-step-3" role="form" data-toggle="validator">
+											<div class="col-md-4 form-step-3" role="form" data-toggle="validator">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group" style="border-bottom: 1px solid #eeeeee">
+															<h5>Form Berkas</h5>
+														</div>
+													</div>
+												</div>
                                                 <div class="form-group">
                                                     <?php $field='scan_akta'; ?>
                                                     <label for="<?=$field?>">Scan Akta</label>
@@ -366,6 +380,36 @@ $emailOrtu='email_ortu';//40
                                                     <div class="help-block with-errors"></div>
                                                 </div>
 
+											</div>
+											<div class="col-md-4 form-step-3" role="form" data-toggle="validator">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group" style="border-bottom: 1px solid #eeeeee">
+															<h5>Form Jurusan</h5>
+														</div>
+													</div>
+												</div>
+												<?php $read=$this->m_crud->read_data("tbl_jurusan","*","id_sekolah='".$data['id']."'");?>
+												<div class="form-group">
+													<?php $field='jurusan_1'; ?>
+													<label for="<?=$field?>">Jurusan Pertama</label>
+													<select name="<?=$field?>" id="<?=$field?>" class="form-control">
+													<?php  foreach($read as $row):?>
+														<option value="<?=$row['id']?>"><?=$row['title']?></option>
+													<?php endforeach;?>
+													</select>
+													<div class="help-block with-errors"></div>
+												</div>
+												<div class="form-group">
+													<?php $field='jurusan_2'; ?>
+													<label for="<?=$field?>">Jurusan Kedua</label>
+													<select name="<?=$field?>" id="<?=$field?>" class="form-control">
+														<?php  foreach($read as $row):?>
+															<option value="<?=$row['id']?>"><?=$row['title']?></option>
+														<?php endforeach;?>
+													</select>
+													<div class="help-block with-errors"></div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -508,7 +552,7 @@ $emailOrtu='email_ortu';//40
 				enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
 			},
 			transitionEffect: 'fade', // Effect on navigation, none/slide/fade
-			transitionSpeed: '400'
+			transitionSpeed: '100'
 		});
 
 		$("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {

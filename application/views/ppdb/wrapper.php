@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?=$data['nama']?></title>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Source+Code+Pro:wght@200&family=Special+Elite&display=swap" rel="stylesheet">
+<!--	@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700|Open+Sans:400,600&amp;display=swap");-->
 	<link rel="icon" href="<?=$data['logo']?>">
 	<link rel="stylesheet" href="<?=base_url().'assets/mtrl/'?>css/default-assets/notification.css">
 	<link rel="stylesheet" href="<?=base_url().'assets/mtrl/'?>css/c3.min.css">
@@ -26,10 +27,9 @@
 	<link href="https://unpkg.com/smartwizard@4.4.1/dist/css/smart_wizard.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<style>
-		html,body,a,h1,h2,h3,h4,h5,h6,p,small{
-			font-family: 'Noto Sans JP', sans-serif!important;
-			font-weight: bold;
-
+		html,body,h1,h2,h3,h4,h5,h6,a,p{
+			font-family: 'Special Elite', cursive!important;
+			font-weight: bold!important;
 		}
 		.error {
 			color: red;
@@ -115,7 +115,7 @@
 						<?php $controller=$this->uri->segment(1); $side_menu=null;$side_menu=array('home','form_pendaftaran','kelulusan','invoice');?>
 						<li class="<?=$page==''?'active':null?>"><a href="<?=$controller?>"><i class="zmdi zmdi-view-dashboard"></i><span><?=rplc_($side_menu[0])?></span></a></li>
 						<?php if($this->session->sess_login['id']==null): ?>
-						<li><a href="javascript:void(0)" onclick="show_modal('modal_login','nama','Form Login')"><i class="zmdi zmdi-view-dashboard"></i><span><?=rplc_($side_menu[1])?></span></a></li>
+						<li><a href="javascript:void(0)" onclick="show_modal('modal_login','emails','Form Login')"><i class="zmdi zmdi-view-dashboard"></i><span><?=rplc_($side_menu[1])?></span></a></li>
 						<?php else : ?>
 						<?php $read=$this->m_crud->get_data("tbl_invoice","status","id_user='".$this->session->sess_login['uid']."'"); if($read['status']==0):?>
 						<li><a href="javascript:void(0)" onclick="alert('status pembayaran anda belum dikonfirmasi. harap tunggu beberapa saat lagi')"><i class="zmdi zmdi-view-dashboard"></i><span><?=rplc_($side_menu[1])?></span></a></li>
