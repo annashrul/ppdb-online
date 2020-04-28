@@ -3,7 +3,7 @@
     ======================================= -->
 	<div class="ecaps-page-wrapper">
   <!-- Sidemenu Area -->
-  <div class="ecaps-sidemenu-area" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >
+  <div class="ecaps-sidemenu-area" <?php if($this->session->userdata('logged_in') == FALSE){ echo 'style="display: none!important;"';} else { echo ''; } ?>>
     <!-- Desktop Logo -->
     <div class="ecaps-logo">
       <a href="index.html"><img class="desktop-logo" src="<?=base_url()?>assets/images/logo.png"
@@ -42,7 +42,7 @@
   <!-- Page Content -->
   <div class="ecaps-page-content">
     <!-- Top Header Area -->
-    <header class="top-header-area d-flex align-items-center justify-content-between" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >>
+    <header class="top-header-area d-flex align-items-center justify-content-between" <?php if($this->session->userdata('logged_in') == FALSE){ echo 'style="display: none!important;"';} else { echo ''; } ?>>
       <div class="left-side-content-area d-flex align-items-center">
         <!-- Mobile Logo -->
         <div class="mobile-logo mr-3 mr-sm-4">
