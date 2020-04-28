@@ -8,6 +8,29 @@
 
 class M_website extends CI_Model
 {
+	public function site($param){
+		$data = $this->m_crud->get_data("tbl_sekolah","id,nama,alamat,telepon,logo,slug","slug='".$param."'");
+		return $data;
+	}
+
+	public function generate_code($param,$where){
+//		$where = $this->site($this->uri->segment(1));
+		if($param=='REG'){
+			$q = $this->m_crud->read_data("tbl_siswa","MAX(RIGHT(no_register,5)) kd_max","id_sekolah='".$where."'");
+			$kd = "";
+			if($q!=null){foreach($q as $k){$tmp=((int)$k['kd_max'])+1;$kd=sprintf("%04s", $tmp);}}else{$kd = "0001";}
+			date_default_timezone_set('Asia/Jakarta');
+			return $where.date('dmy').$kd;
+		}
+		elseif ($param=='INV'){
+			$q = $this->m_crud->read_data("tbl_invoice","MAX(RIGHT(no_invoice,5)) kd_max","id_sch='".$where."'");
+			$kd = "";
+			if($q!=null){foreach($q as $k){$tmp=((int)$k['kd_max'])+1;$kd=sprintf("%04s", $tmp);}}else{$kd = "0001";}
+			date_default_timezone_set('Asia/Jakarta');
+			return "INV-".$where.date('dmy').$kd;
+		}
+
+	}
     public function tempOne($img,$name,$nip,$jabatan,$desc){
         return /** @lang text */
             '<div class="col-lg-6">

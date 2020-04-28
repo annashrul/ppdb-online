@@ -52,5 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Landing';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+//$route['ppdb/((.*))'] = function ($slug) {return 'ppdb/index/' . strtolower($slug);};
+//$routes['ppdb/auth'] = 'ppdb/auth';
+$route['(:any)'] = 'ppdb/index/$0';
+
 // $route['berita/(:any)'] = 'Menu_Controller/detail_berita/$1';
 

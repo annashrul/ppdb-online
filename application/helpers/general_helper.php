@@ -130,4 +130,9 @@ if (!function_exists('q')) {
 
 	}
 }
-
+if (!function_exists('rplc_')) {
+	function rplc_($text)
+	{
+		return str_replace("_"," ",$text);
+	}
+}
