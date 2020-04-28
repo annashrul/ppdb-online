@@ -3,11 +3,11 @@
     ======================================= -->
 	<div class="ecaps-page-wrapper">
   <!-- Sidemenu Area -->
-  <div class="ecaps-sidemenu-area" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >
+  <div class="ecaps-sidemenu-area" <?php if($this->session->userdata('logged_in') == FALSE){ echo 'style="display: none!important;"';} else { echo ''; } ?>>
     <!-- Desktop Logo -->
     <div class="ecaps-logo">
       <a href="index.html"><img class="desktop-logo" src="<?=base_url()?>assets/images/logo.png"
-          style="max-height: 60px;" alt="Desktop Logo"> <img class="small-logo"
+          style="max-height: 60px;" alt="Desktop Logo" onerror="this.onerror=null;this.src='<?=base_url('upload/default.jpg');?>';"> <img class="small-logo"
           src="<?=base_url()?>assets/images/favicon.png" style="max-height: 60px;" alt="Mobile Logo"></a>
     </div>
 
@@ -18,20 +18,26 @@
         <!-- Sidebar Menu -->
         <nav>
           <ul class="sidebar-menu" data-widget="tree">
-            <li class=""><a href="<?=base_url();?>sekolah"><i class="zmdi zmdi-view-dashboard"></i><span>BERANDA</span></a>
+            <li class=""><a href="<?=base_url();?>sekolah/beranda"><i class="zmdi zmdi-view-dashboard"></i><span>BERANDA</span></a>
             </li>
-			<li class="treeview">
+							<li class="treeview">
+              <a href="javascript:void(0)"><i class="zmdi zmdi-apps"></i> <span>Master</span> <i
+                  class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="<?=base_url()?>sekolah/Master_jurusan">Jurusan</a></li>
+              </ul>
+            </li>
+							<li class="treeview">
               <a href="javascript:void(0)"><i class="zmdi zmdi-apps"></i> <span>Manajemen Siswa</span> <i
                   class="fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="<?=base_url()?>sekolah/siswa">Siswa Data</a></li>
                 <li><a href="<?=base_url()?>sekolah/siswa_alamat">Siswa Alamat</a></li>
-                <li><a href="#">Siswa Prestasi</a></li>
-                <li><a href="#">Siswa Wali</a></li>
-                <li><a href="#">Siswa Tambahan</a></li>
+                <li><a href="<?=base_url()?>sekolah/siswa_prestasi">Siswa Prestasi</a></li>
+                <li><a href="<?=base_url()?>sekolah/siswa_wali">Siswa Wali</a></li>
+                <li><a href="<?=base_url()?>sekolah/siswa_tambahan">Siswa Tambahan</a></li>
               </ul>
-			  <li class=""><a href="<?=base_url();?>sekolah/out"><i class="zmdi zmdi-view-dashboard"></i><span>KELUAR</span></a>
-            </li>
+			  				<li class=""><a href="<?=base_url();?>sekolah/out"><i class="zmdi zmdi-view-dashboard"></i><span>KELUAR</span></a></li>
             </li>
           </ul>
         </nav>
@@ -40,9 +46,9 @@
   </div>
 
   <!-- Page Content -->
-  <div class="ecaps-page-content">
+  <div class="ecaps-page-content" <?php if($this->session->userdata('logged_in') == FALSE){ echo 'style="margin-left: unset!important;"';} else { echo ''; } ?>>
     <!-- Top Header Area -->
-    <header class="top-header-area d-flex align-items-center justify-content-between" style="<?php if($this->session->userdata('logged_in') == FALSE){ echo 'display: none!important;';} else { echo 'display: none!important;'; } ?>" >>
+    <header class="top-header-area d-flex align-items-center justify-content-between" <?php if($this->session->userdata('logged_in') == FALSE){ echo 'style="display: none!important;"';} else { echo ''; } ?>>
       <div class="left-side-content-area d-flex align-items-center">
         <!-- Mobile Logo -->
         <div class="mobile-logo mr-3 mr-sm-4">
